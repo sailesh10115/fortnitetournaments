@@ -90,19 +90,24 @@ client.on("message", async message => {
 
     // Let's go with a few common example commands! Feel free to delete or change those.
 
+    if (command === "snippets") {
+        const rolesembed = new Discord.MessageEmbed()
+            .setTitle('**__Snippets__**')
+            .setColor(`#1FCEE3`)
+            .setDescription('\*Snippets are commands that send messages instead\*\n \n\`.hi\` - Basic introduction message.\n\`.done\` - Says anything else we need to help you with.\n\`.downtime\` - Use this message when there is HypeX.GG downtime.\n\`.irusu\` - Use this command if you dont know how to answer a HypeX.GG question.')
+        message.channel.send(rolesembed)
+    }
     if (command === "roles") {
         const rolesembed = new Discord.MessageEmbed()
-            .setTitle('**__Roles Explained__**')
             .setColor(`#1FCEE3`)
-            .setDescription('• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC\n• Tournament Winner - Win one of our tournaments\n*IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715>*\n')
+            .setDescription('**__Roles Explained__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC\n• Tournament Winner - Win one of our tournaments\n*IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715>*\n')
         message.channel.send(rolesembed)
     }
 
     if (command === "channels") {
         const channelsembed = new Discord.MessageEmbed()
-            .setTitle('**__Channels Explained__**')
             .setColor(`#1FCEE3`)
-            .setDescription('• <#675383766440476702> - Introduction to our server that includes rules, roles, and channels.\n• <#675394454898737173> - What you can get for boosting.\n• <#675380007383728148> - Server news and announcements.\n• <#675396607717670994> - Where you go if you need help or have a question\n• <#689592766380245012> - How our system works.\n• <#675380924661235712> - How to sign up for tournaments.\n• <#675383583216631813> - Newest tournament link to register.\n• <#675383542938599437> - Frequently asked questions about tournaments.\n• <#648166180254646302> - General chat.\n• <#675381249312948244> - Looking for clans or teamates\n• <#675381269391081482> - Bot commands or games.\• <#675449794742845450> - Free things.\n• <#675449783803969536> - Servers affiliated with us.')
+            .setDescription('**__Channels Explained__**\n• <#675383766440476702> - Introduction to our server that includes rules, roles, and channels.\n• <#675394454898737173> - What you can get for boosting.\n• <#675380007383728148> - Server news and announcements.\n• <#675396607717670994> - Where you go if you need help or have a question\n• <#689592766380245012> - How our system works.\n• <#675380924661235712> - How to sign up for tournaments.\n• <#675383583216631813> - Newest tournament link to register.\n• <#675383542938599437> - Frequently asked questions about tournaments.\n• <#648166180254646302> - General chat.\n• <#675381249312948244> - Looking for clans or teamates\n• <#691018085586698360> - Bot commands or games.\• <#675449794742845450> - Free things.\n• <#675449783803969536> - Servers affiliated with us.')
         message.channel.send(channelsembed)
     }
 
@@ -240,7 +245,7 @@ client.on("message", async message => {
         const embed = new Discord.MessageEmbed()
             .setTitle('\*\*\_\_Fortnite Tournaments Bot\_\_\*\*')
             .setThumbnail(message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
-            .addField('Prefix', 't!')
+            .addField('Prefix', '?')
             .addField('Moderation', 'Kick, Ban, Clear, Addrole, Removerole, Mute, Unmute')
             .addField('Just 4 Fun', 'Avatar (av), Ping, Say, ServerInfo, Members, Embed')
             .addField('If Someone Has Disoybed Server rules, Report Them', 'Report')
