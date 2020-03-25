@@ -97,6 +97,7 @@ client.on("message", async message => {
             .setDescription('\*Snippets are commands that send messages instead\*\n \n\`.hi\` - Basic introduction message.\n\`.done\` - Says anything else we need to help you with.\n\`.downtime\` - Use this message when there is HypeX.GG downtime.\n\`.irusu\` - Use this command if you dont know how to answer a HypeX.GG question.')
         message.channel.send(rolesembed)
     }
+    
     if (command === "roles") {
         const rolesembed = new Discord.MessageEmbed()
             .setColor(`#1FCEE3`)
@@ -114,7 +115,6 @@ client.on("message", async message => {
     if (command === "embed") {
         message.delete()
         let prefix = '?'
-        if (!message.member.hasPermission('MANAGE_MESSAGES')) return;
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const word = args.slice(1).join(' ')
         if (!word) return;
@@ -144,52 +144,6 @@ client.on("message", async message => {
     if (command === "staffapp") {
         message.delete().catch(O_o => { });
         message.channel.send("Staff App: https://forms.gle/vCRuUDdVii4m8CTdA")
-    }
-
-    if (command === "kick" && message.author.id == 644989163543724033) {
-        // This command must be limited to mods and admins. In this example we just hardcode the role names.
-        // Please read on Array.some() to understand this bit: 
-        // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-        if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send('You Do Not Have Perms')
-
-        // Let's first check if we have a member and if we can kick them!
-        // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
-        // We can also support getting the member by ID, which would be args[0]
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-        if (!member)
-            return message.reply("Please mention a valid member of this server");
-        if (!member.kickable)
-            return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
-
-        // slice(1) removes the first part, which here should be the user mention or ID
-        // join(' ') takes all the various parts to make it a single string.
-        let reason = args.slice(1).join(' ');
-        if (!reason) reason = "No reason provided";
-
-        // Now, time for a swift kick in the nuts!
-        await member.kick(reason)
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-        message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
-
-    }
-
-    if (command === "ban" && message.author.id == 644989163543724033) {
-        // Most of this command is identical to kick, except that here we'll only let admins do it.
-        // In the real world mods could ban too, but this is just an example, right? ;)
-        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You Do Not Have Perms')
-
-        let member = message.mentions.members.first();
-        if (!member)
-            return message.reply("Please mention a valid member of this server");
-        if (!member.bannable)
-            return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
-
-        let reason = args.slice(1).join(' ');
-        if (!reason) reason = "No reason provided";
-
-        await member.ban(reason)
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-        message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
     }
 
     if (command === "serverinfo") {
