@@ -69,6 +69,17 @@ client.on('guildMemberRemove', member => {
     channel.send(leaveserverembed);
 });
 
+setInterval(() => {
+    let lfg = client.channels.cache.get('675381249312948244');
+    const lfgembed = new Discord.MessageEmbed()
+    .setTitle('\*\*\_\_Fortnite Boxfights\_\_\*\*')
+    .setThumbnail(lfg.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
+    .setDescription('Remember to use our own ranked boxfights system for \*\*VBucks!\*\* \nQueue up for a match right now in <#692853691308310589>. \nMore information on how to use it on <#692888715512643654>.')
+    .setColor(`#1FCEE3`)
+    lfg.send(lfgembed)
+}, 600000);
+
+
 client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return message.reply('Hello, Please Check <#675380924661235712> To Play In Our Tourneys')
