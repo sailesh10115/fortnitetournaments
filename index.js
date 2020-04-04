@@ -34,16 +34,17 @@ client.on("guildDelete", guild => {
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
-
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
     let joineserverembed = new Discord.MessageEmbed()
         .setTitle('\*\*\_\_Welcome To Fortnite Tournaments\_\_\*\*')
-        .setDescription(`Welcome Page And Rules: <#675383766440476702>\nNitro Boost Us For Rewards! <#675394454898737173>\n \n**__How To Play In Tournaments__**\nCheck <#675380924661235712> For A Step By Step Guide + Video!\nHave Questions? Check <#675383542938599437> If This Did Not Help Dm <@675398193755848715>\n<#675383583216631813> Will Have The Latest Tournament\n \n**__Acquirable Roles__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC: <#675445416803958784>\n• Tournament Winner - Win one of our tournaments\n* IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715> *`)
+        .setDescription(`Welcome Page And Rules: <#692842435671359498>\nNitro Boost Us For Rewards! <#675394454898737173>\n \n**__How To Play In Tournaments__**\nCheck <#675380924661235712> For A Step By Step Guide + Video!\nHave Questions? Check <#675383542938599437> If This Did Not Help Dm <@675398193755848715>\n<#675383583216631813> Will Have The Latest Tournament\n \n**__Acquirable Roles__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC: <#675445416803958784>\n• Tournament Winner - Win one of our tournaments\n* IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715> *`)
         .setColor("#1FCEE3")
     member.send(joineserverembed);
 });
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
     const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
     if (!channel) return;
     let membername = member.displayName
@@ -94,21 +95,21 @@ client.on("message", async message => {
         const rolesembed = new Discord.MessageEmbed()
             .setTitle('**__Snippets__**')
             .setColor(`#1FCEE3`)
-            .setDescription('\*Snippets are commands that send messages instead\*\n \n\`.hi\` - Basic introduction message.\n\`.done\` - Says anything else we need to help you with.\n\`.downtime\` - Use this message when there is HypeX.GG downtime.\n\`.irusu\` - Use this command if you dont know how to answer a HypeX.GG question.')
+            .setDescription('\*Snippets are commands that send messages instead\*\n \n\`.hi\` - "Hello, thanks for contacting modmail, how can we help you".\n\`.done\` - "Is there anything else we can help you with?".\n\`.downtime\` - "HypeX.GG currently has downtime".\n\`.irusu\` - "Hey, I cant answer this question, please DM <@474991519988842508> as he is our HypeX.GG affiliate". \n\`.pro\` - "Please send proof of top 500 placements".')
         message.channel.send(rolesembed)
     }
     
     if (command === "roles") {
         const rolesembed = new Discord.MessageEmbed()
             .setColor(`#1FCEE3`)
-            .setDescription('**__Roles Explained__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC\n• Tournament Winner - Win one of our tournaments\n*IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715>*\n')
+            .setDescription('**__Roles Explained__**\n \n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC\n• Tournament Winner - Win one of our tournaments\n*IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715>*\n')
         message.channel.send(rolesembed)
     }
 
     if (command === "channels") {
         const channelsembed = new Discord.MessageEmbed()
             .setColor(`#1FCEE3`)
-            .setDescription('**__Channels Explained__**\n• <#675383766440476702> - Introduction to our server that includes rules, roles, and channels.\n• <#675394454898737173> - What you can get for boosting.\n• <#675380007383728148> - Server news and announcements.\n• <#675396607717670994> - Where you go if you need help or have a question\n• <#689592766380245012> - How our system works.\n• <#675380924661235712> - How to sign up for tournaments.\n• <#675383583216631813> - Newest tournament link to register.\n• <#675383542938599437> - Frequently asked questions about tournaments.\n• <#648166180254646302> - General chat.\n• <#675381249312948244> - Looking for clans or teamates\n• <#691018085586698360> - Bot commands or games.\• <#675449794742845450> - Free things.\n• <#675449783803969536> - Servers affiliated with us.')
+            .setDescription('**__Channels Explained__**\n \n• <#692842435671359498> - Introduction to our server that includes rules, roles, and channels.\n• <#675394454898737173> - How you can help the server.\n• <#675380007383728148> - Server news and announcements.\n \n• <#689592766380245012> - How our system works.\n \n• <#675380924661235712> - How to sign up for tournaments.\n• <#675383583216631813> - Newest tournament link to register.\n• <#675383542938599437> - Frequently asked questions about tournaments.\n \n• <#648166180254646302> - General chat.\n• <#675381249312948244> - Looking for clans or teamates\n• <#691018085586698360> - Bot commands or games.\n \n• <#692888715512643654> - How to play in our boxfights\n• <#692888012672991273> - Boxfight rules\n• <#692853691308310589> - Find a game or view stats\n• <#692873714198642770> - Ranks\n')
         message.channel.send(channelsembed)
     }
 
