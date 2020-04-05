@@ -17,24 +17,24 @@ client.on("ready", () => {
     console.log(`Bot has started`);
     // Example of changing the bot's playing game to something useful. `client.user` is what the
     // docs refer to as the "ClientUser".
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on("guildCreate", guild => {
     // This event triggers when the bot joins a guild.
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on("guildDelete", guild => {
     // this event triggers when the bot is removed from a guild.
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     let joineserverembed = new Discord.MessageEmbed()
         .setTitle('\*\*\_\_Welcome To Fortnite Tournaments\_\_\*\*')
         .setDescription(`Welcome Page And Rules: <#692842435671359498>\nNitro Boost Us For Rewards! <#675394454898737173>\n \n**__How To Play In Tournaments__**\nCheck <#675380924661235712> For A Step By Step Guide + Video!\nHave Questions? Check <#675383542938599437> If This Did Not Help Dm <@675398193755848715>\n<#675383583216631813> Will Have The Latest Tournament\n \n**__Acquirable Roles__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC: <#675445416803958784>\n• Tournament Winner - Win one of our tournaments\n* IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715> *`)
@@ -44,7 +44,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { type: 'WATCHING' });
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
     if (!channel) return;
     let membername = member.displayName
@@ -58,6 +58,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
     // This Command Send Message When Someone Leaves The Server
+    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
     if (!channel) return;
     let membername = member.displayName
@@ -77,7 +78,7 @@ setInterval(() => {
     .setDescription('Remember to use our own ranked boxfights system for \*\*VBucks!\*\* \nQueue up for a match right now in <#692853691308310589>. \nMore information on how to use it on <#692888715512643654>.')
     .setColor(`#1FCEE3`)
     lfg.send(lfgembed)
-}, 600000);
+}, 1800000);
 
 
 client.on("message", async message => {
