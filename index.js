@@ -17,40 +17,40 @@ client.on("ready", () => {
     console.log(`Bot has started`);
     // Example of changing the bot's playing game to something useful. `client.user` is what the
     // docs refer to as the "ClientUser".
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on("guildCreate", guild => {
     // This event triggers when the bot joins a guild.
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on("guildDelete", guild => {
     // this event triggers when the bot is removed from a guild.
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 });
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     let joineserverembed = new Discord.MessageEmbed()
-        .setTitle('\*\*\_\_Welcome To Fortnite Tournaments\_\_\*\*')
-        .setDescription(`Welcome Page And Rules: <#692842435671359498>\nNitro Boost Us For Rewards! <#675394454898737173>\n \n**__How To Play In Tournaments__**\nCheck <#675380924661235712> For A Step By Step Guide + Video!\nHave Questions? Check <#675383542938599437> If This Did Not Help Dm <@675398193755848715>\n<#675383583216631813> Will Have The Latest Tournament\n \n**__Acquirable Roles__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any Fortnite hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC: <#675445416803958784>\n• Tournament Winner - Win one of our tournaments\n* IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715> *`)
+        .setTitle('\*\*\_\_Welcome To Pro League Tournaments\_\_\*\*')
+        .setDescription(`\*\*\_\_Before you do anything go to <#697083905580204032> and react with what games you play!\_\_\*\*\n \nWelcome Page And Rules: <#692842435671359498>\nNitro Boost Us For Rewards! <#675394454898737173>\n \n**__How To Play In Tournaments__**\nCheck <#675380924661235712> For A Step By Step Guide + Video!\nHave Questions? Dm <@675398193755848715>\n \n**__Acquirable Roles__**\n• Community Figure - Be a notable figure in the community\n• Pro - Place top 500 in any hosted event\n• Content Creator - Over 100k on any platform\n• Developer - Make or develop programs or bots\n• Nitro Booster - Gets when boosting perks: <#675394454898737173>\n• Supporter - When you use our SAC: <#675394454898737173>\n• Tournament Winner - Win one of our tournaments\n* IF YOU QUALIFY FOR ANYTHING DM <@675398193755848715> *`)
         .setColor("#1FCEE3")
-        .setThumbnail(`https://cdn.discordapp.com/icons/591361107231506452/a_93cf7000959037455d92773dc85fbbf7.gif?size=1024`)
+        .setThumbnail(`https://cdn.discordapp.com/icons/591361107231506452/81324d88ab6104b42da8e03bde295441.png?size=1024`)
     member.send(joineserverembed);
 });
 
 client.on('guildMemberAdd', member => {
     // This Command Send Message When Someone Joins The Server
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
     if (!channel) return;
     let membername = member.displayName
     let joineserverembed = new Discord.MessageEmbed()
-        .setTitle('\*\*\_\_Welcome To Fortnite Tournaments\_\_\*\*')
+        .setTitle('\*\*\_\_Welcome To Pro League Tournaments\_\_\*\*')
         .addField('New Person Joined',`${membername}`)
         .addField('Total Members', channel.guild.memberCount)
         .setColor("#15f153")
@@ -59,7 +59,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
     // This Command Send Message When Someone Leaves The Server
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
     const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
     if (!channel) return;
     let membername = member.displayName
@@ -82,7 +82,7 @@ setInterval(() => {
 }, 1800000);
 
 setInterval(() => {
-    client.user.setActivity(`Fortnite Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
+    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
 }, 60000);
 
 
@@ -117,7 +117,6 @@ client.on("message", async message => {
         const embed = new Discord.MessageEmbed()
             .setDescription(`${word}`)
             .setColor(`#1FCEE3`)
-            .setThumbnail(message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
         message.channel.send(embed)
     }
 
@@ -127,7 +126,7 @@ client.on("message", async message => {
             .setColor("#15f153")
             .setThumbnail(message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
             .addField("Server Name", message.guild.name)
-            .addField('What We Do', 'We Run Huge Cash Prize Tournaments For Mainly Fortnite and Apex Legneds, But are Looking To Expand')
+            .addField('What We Do', 'We Run Huge Cash Prize Tournaments')
             .addField("Created On", message.guild.createdAt)
             .addField("You Joined", message.member.joinedAt)
             .addField("Total Members", message.guild.memberCount)
