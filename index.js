@@ -43,32 +43,9 @@ client.on('guildMemberAdd', member => {
     member.send(joineserverembed);
 });
 
-client.on('guildMemberAdd', member => {
-    // This Command Send Message When Someone Joins The Server
-    client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
-    const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
-    if (!channel) return;
-    let membername = member.displayName
-    let joineserverembed = new Discord.MessageEmbed()
-        .setTitle('\*\*\_\_Welcome To Pro League Tournaments\_\_\*\*')
-        .addField('New Person Joined',`${membername}`)
-        .addField('Total Members', channel.guild.memberCount)
-        .setColor("#15f153")
-    channel.send(joineserverembed);
-});
-
 client.on('guildMemberRemove', member => {
     // This Command Send Message When Someone Leaves The Server
     client.user.setActivity(`Pro League Tournaments | Prefix: ?`, { url: "https://www.twitch.tv/tournaments_fn", type: "STREAMING" });
-    const channel = member.guild.channels.cache.find(channel => channel.name === 'join-leave')
-    if (!channel) return;
-    let membername = member.displayName
-    let leaveserverembed = new Discord.MessageEmbed()
-        .setTitle('\*\*\_\_Fortnite Tournaments Bot\_\_\*\*')
-        .addField('New Person Left',`${membername};`)
-        .addField('Total Members', channel.guild.memberCount)
-        .setColor(0xEA3007)
-    channel.send(leaveserverembed);
 });
 
 setInterval(() => {
