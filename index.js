@@ -10,6 +10,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token 
 // config.prefix contains the message prefix.
+const beautify = require("beautify")
 
 
 client.on("ready", () => {
@@ -51,10 +52,10 @@ client.on('guildMemberRemove', member => {
 setInterval(() => {
     let lfg = client.channels.cache.get('675381249312948244');
     const lfgembed = new Discord.MessageEmbed()
-    .setTitle('\*\*\_\_Fortnite Boxfights\_\_\*\*')
-    .setThumbnail(lfg.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
-    .setDescription('Remember to use our own ranked boxfights system for \*\*VBucks!\*\* \nQueue up for a match right now in <#692853691308310589>. \nMore information on how to use it on <#692888715512643654>.')
-    .setColor(`#1FCEE3`)
+        .setTitle('\*\*\_\_Fortnite Boxfights\_\_\*\*')
+        .setThumbnail(lfg.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
+        .setDescription('Remember to use our own ranked boxfights system for \*\*VBucks!\*\* \nQueue up for a match right now in <#692853691308310589>. \nMore information on how to use it on <#692888715512643654>.')
+        .setColor(`#1FCEE3`)
     lfg.send(lfgembed)
 }, 1800000);
 
@@ -85,6 +86,57 @@ client.on("message", async message => {
 
     // Let's go with a few common example commands! Feel free to delete or change those.
 
+    if (command === "eval") {
+        if (message.author.id !== "644989163543724033") {
+            return message.reply("you're not the bot owner haha")
+
+        }
+
+    if (!args[0]) {
+        message.reply("you need to eval something please :)")
+            .then(m => m.delete(5000));
+    }
+
+    try {
+        if (args.join(" ").includes("token")) {
+            return;
+        }
+
+        const toEval = args.join(" ");
+        const evaluated = eval(toEval);
+
+        let embed = new MessageEmbed()
+            .setColor("#7289DA")
+            .setTimestamp()
+            .setFooter(bot.user.username, bot.user.displayAvatarURL)
+            .setTitle("Eval")
+            .addField("to evaluate:", `\`\`\`js\n${beautify(srg.join(" "), { format: "js" })}\n\`\`\`\``)
+            .addField("Evaluated:", evaluated)
+            .addField("Type of:", typeof (evaluated));
+
+        message.author.send(embed);
+    } catch (e) {
+        let embed = new MessageEmbed()
+            .setColor("#99AAB5")
+            .setTitle("\:x: Error!")
+            .setDescription(e)
+            .setFooter(bot.user.username, bot.user.displayAvatarURL);
+
+        message.author.send(embed);
+
+    }
+}
+
+if (command === "say") {
+    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+    // To get the "message" itself we join the `args` back into a string with spaces: 
+    const sayMessage = args.join(" ");
+    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    message.delete().catch(O_o => { });
+    // And we get the bot to say the thing: 
+    message.channel.send(sayMessage);
+}
+
     if (command === "embed") {
         message.delete()
         let prefix = '?'
@@ -94,6 +146,7 @@ client.on("message", async message => {
         const embed = new Discord.MessageEmbed()
             .setDescription(`${word}`)
             .setColor(`#1FCEE3`)
+            .setThumbnail(`https://cdn.discordapp.com/icons/591361107231506452/a_c08f7d0195f0e0a3a3aa36053f48131d.gif?size=1024`)
         message.channel.send(embed)
     }
 
