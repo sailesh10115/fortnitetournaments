@@ -1,19 +1,16 @@
 {
-  "name": "discord-bot",
+  "name": "Fn",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "node .": "node run index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "EEE",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "beautify": "0.0.8",
-    "discord.js": "^12.0.2",
-    "ms": "^2.1.2"
-  },
-  "keywords": [],
-  "devDependencies": {},
-  "description": ""
+    "discord.js": "^12.0.2"
+  }
 }

@@ -136,6 +136,18 @@ if (command === "say") {
     // And we get the bot to say the thing: 
     message.channel.send(sayMessage);
 }
+if (command === "pembed") {
+    message.delete()
+    let prefix = '?'
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const word = args.slice(1).join(' ')
+    if (!word) return;
+    const embed = new Discord.MessageEmbed()
+        .setDescription(`${word}`)
+        .setColor(`#1FCEE3`)
+        .setThumbnail(`https://cdn.discordapp.com/icons/591361107231506452/a_c08f7d0195f0e0a3a3aa36053f48131d.gif?size=1024`)
+    message.channel.send(embed)
+}
 
     if (command === "embed") {
         message.delete()
@@ -146,7 +158,6 @@ if (command === "say") {
         const embed = new Discord.MessageEmbed()
             .setDescription(`${word}`)
             .setColor(`#1FCEE3`)
-            .setThumbnail(`https://cdn.discordapp.com/icons/591361107231506452/a_c08f7d0195f0e0a3a3aa36053f48131d.gif?size=1024`)
         message.channel.send(embed)
     }
 
