@@ -149,6 +149,16 @@ if (command === "pembed") {
     message.channel.send(embed)
 }
 
+if (command === "editembed") {
+    let channel = client.channels.cache.get('697083905580204032');
+    channel.messages.fetch(697089613407322222)
+    const exampleEmbed = new Discord.MessageEmbed()
+    .setTitle('Some title')
+    .setDescription('Description after the edit');
+
+message.edit(embed);
+}
+
     if (command === "embed") {
         message.delete()
         let prefix = '?'
